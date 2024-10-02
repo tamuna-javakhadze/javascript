@@ -33,15 +33,21 @@ function online(){
 let userInfo = online();
 console.log(userInfo);
 
-// 3 - ???
+// 3
 let array = [-3, 0, 15, 22, -31, 17];
 
 function getMaxNumber(array){
+    let maxValue = 0;
     for(let item of array){
+        if(item>maxValue){
+            maxValue = item;
+        }
     }
+    return maxValue;
 }
 
-console.log(getMaxNumber(array));
+let result = getMaxNumber(array);
+console.log(result);
 
 // 4
 let evenOdd = (n) => {
