@@ -1,0 +1,18 @@
+@media only screen and (max-width:700px){
+    .to-do-list-container{
+        width: 100%;
+    }
+    .nav{
+        display: none;
+    }
+    #burger{
+        display: block;
+    }
+    .show-hide{
+        display: flex;
+        flex-direction: column;
+        width: 100px;
+        height: 200px;
+        top: 90px;
+    }
+}
