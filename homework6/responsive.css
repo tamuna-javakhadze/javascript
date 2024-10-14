@@ -8,7 +8,7 @@
     #burger{
         display: block;
     }
-    .show-hide{
+    .nav.show-hide{
         display: flex;
         flex-direction: column;
         width: 100px;

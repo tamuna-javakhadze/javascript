@@ -1,0 +1,97 @@
+.header{
+    background-color: tomato;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    position: fixed;
+    width: 100%;
+}
+.logo{
+    font-size: 30px;
+    font-weight: 900;
+    text-shadow: 3px 3px 3px black;
+    color: yellow;
+    text-decoration: wavy black;
+    border: solid 1px black;
+    border-radius: 10px;
+    padding: 2px;
+}
+.navigation{
+    width: 400px;
+}
+.nav-ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+a{
+    transition: all 0.2s linear;
+}
+a:hover{
+    color: yellow;
+    font-weight: bold;
+}
+.burger{
+    width: 34px;
+    height: 25px;
+    position: absolute;
+    top: 55px;
+    right: 50px;
+    cursor: pointer;
+    display: none;
+}
+.line{
+    width: 100%;
+    height: 3px;
+    background-color: black;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s linear;
+}
+.line1{
+    top: 0%;
+}
+.line3{
+    top: 100%;
+}
+.burger.x .line1{
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+.burger.x .line2{
+    display: none;
+}
+.burger.x .line3{
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* section */
+.section{
+    height: 300vh;
+    background-image: linear-gradient(red, blue);
+}
+.scroll-up{
+    position: fixed;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    padding: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    border: solid 1px black;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: yellow;
+    color: tomato;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px black;
+}
