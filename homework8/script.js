@@ -98,7 +98,7 @@ loadNext.addEventListener("click", function () {
 
 
 // xml request
-let ul2 = document.getElementById("color-box")
+let colorBox = document.getElementById("color-box")
 
 let request = new XMLHttpRequest();
 request.open('GET', 'https://reqres.in/api/unknown');
@@ -119,14 +119,17 @@ request.addEventListener('load', function(){
     div.classList.add('color')
     div.style.backgroundColor = color;
 
-    ul2.appendChild(div);
+    colorBox.appendChild(div);
     div.appendChild(text)
   })
 
 });
 
 request.addEventListener('error', function(){
-  
+  let error = document.createElement('p')
+  error.textContent = "server error";
+  error.style.textAlign = "center";
+  colorBox.appendChild(error)
 });
 
 request.send();
@@ -139,9 +142,11 @@ fetch("https://jsonplaceholder.typicode.com/users", {
   method: 'GET',
 })
   .then(function(responce){
+    if(!responce.ok){
+      throw 'server error';
+    }
     return responce.json();
   })
-
   .then(function(data){
     data.forEach(function(item){
       let name = item.company.name;
@@ -152,8 +157,9 @@ fetch("https://jsonplaceholder.typicode.com/users", {
       container.appendChild(companyName);
     })
   })
-
   .catch(function(error){
-    console.log(error)
+    let errorText = document.createElement('p');
+    errorText.innerText = error;
+    container.appendChild(errorText);
   });
 
