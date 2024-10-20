@@ -1,11 +1,11 @@
 // @ts-chek
 'use strict'
 
+// burger
 let burger = document.getElementById("burger");
 let navigation = document.getElementById("navigation");
 let button = document.getElementById("button");
 
-// burger
 burger.addEventListener('click', function(){
     navigation.classList.toggle("toggle");
     burger.classList.toggle("x");
@@ -29,12 +29,7 @@ button.addEventListener("click", function(){
 });
 
 
-
-
-
-// load next/previous
 // fetch
-
 let currentPage = 1;
 let totalPages;
 let loadPrev = document.getElementById("load-prev");
@@ -45,7 +40,6 @@ function getUsers(page) {
     method: "GET",
   })
     .then(function (responseData) {
-      console.log(responseData);
       if (!responseData.ok) {
         throw responseData.status;
       }
@@ -60,7 +54,6 @@ function getUsers(page) {
         loadPrev.disabled = false;
         loadNext.disabled = true
       }
-      console.log(mosulidata);
       const fragment = new DocumentFragment();
 
       mosulidata.data.forEach((item) => {
@@ -86,8 +79,7 @@ function getUsers(page) {
 getUsers(currentPage);
 
 
-// prev and next
-
+// prev and next buttons
 loadPrev.addEventListener("click", function () {
   if (currentPage === 1) {
     return;
@@ -103,3 +95,65 @@ loadNext.addEventListener("click", function () {
   currentPage++;
   getUsers(currentPage);
 });
+
+
+// xml request
+let ul2 = document.getElementById("color-box")
+
+let request = new XMLHttpRequest();
+request.open('GET', 'https://reqres.in/api/unknown');
+
+request.addEventListener('load', function(){
+  let parsed = JSON.parse(this.response)
+
+  parsed.data.forEach(function(item){
+    let name = item.name;
+    let color = item.color;
+
+    let div = document.createElement('div');
+    let text = document.createElement('div');
+
+    text.classList.add('text')
+    text.textContent = `${name}`
+
+    div.classList.add('color')
+    div.style.backgroundColor = color;
+
+    ul2.appendChild(div);
+    div.appendChild(text)
+  })
+
+});
+
+request.addEventListener('error', function(){
+  
+});
+
+request.send();
+
+
+// fetch
+let container = document.getElementById('company-box');
+
+fetch("https://jsonplaceholder.typicode.com/users", {
+  method: 'GET',
+})
+  .then(function(responce){
+    return responce.json();
+  })
+
+  .then(function(data){
+    data.forEach(function(item){
+      let name = item.company.name;
+
+      let companyName = document.createElement('div');
+      companyName.innerText = `${name}`
+
+      container.appendChild(companyName);
+    })
+  })
+
+  .catch(function(error){
+    console.log(error)
+  });
+
