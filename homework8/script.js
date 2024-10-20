@@ -35,8 +35,10 @@ button.addEventListener("click", function(){
 // load next/previous
 // fetch
 
-let currentpage = 1;
+let currentPage = 1;
 let totalPages;
+let loadPrev = document.getElementById("load-prev");
+let loadNext = document.getElementById("load-more");
 
 function getUsers(page) {
   fetch("https://reqres.in/api/users?page=" + page, {
@@ -50,6 +52,14 @@ function getUsers(page) {
       return responseData.json();
     })
     .then(function (mosulidata) {
+      if (currentPage === 1) {
+        loadPrev.disabled = true;
+        loadNext.disabled = false;
+      }
+      if (currentPage === totalPages) {
+        loadPrev.disabled = false;
+        loadNext.disabled = true
+      }
       console.log(mosulidata);
       const fragment = new DocumentFragment();
 
@@ -73,28 +83,23 @@ function getUsers(page) {
     });
 }
 
-getUsers(currentpage);
+getUsers(currentPage);
 
-let loadPrev = document.getElementById("load-prev");
-let loadNext = document.getElementById("load-more");
+
+// prev and next
 
 loadPrev.addEventListener("click", function () {
-  if (currentpage === 1) {
-    // loadPrev.style.display = "none";
-    loadPrev.disabled = true;
+  if (currentPage === 1) {
     return;
   }
-  loadNext.disabled = false;
-  currentpage--;
-  getUsers(currentpage);
+  currentPage--;
+  getUsers(currentPage);
 });
 
 loadNext.addEventListener("click", function () {
-  if (currentpage === totalPages) {
-    loadNext.disabled = true;
+  if (currentPage === totalPages) {
     return;
   }
-  loadPrev.disabled = false;
-  currentpage++;
-  getUsers(currentpage);
+  currentPage++;
+  getUsers(currentPage);
 });
