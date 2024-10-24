@@ -42,6 +42,7 @@ function createMeal(item){
     li.appendChild(img);
 }
 
+// filter
 function filter(searchItem){
     listItems.forEach(item => {
         if(item.innerText.toLowerCase().includes(searchItem.trim(' ').toLowerCase())){
