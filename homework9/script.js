@@ -51,7 +51,7 @@ fetchFnc('https://jsonplaceholder.typicode.com/posts', function(data) {
 function createPost(item){
     const divEl = document.createElement('div');
     divEl.classList.add('post');
-    divEl.setAttribute('data-id', item.id); // ატრიბუტის მინიჭება რატომ გვჭირდება, როცა ქლიქ ივენთის დროს შეგვიძლია პირდაპირ item.id-ით ამოვიღოთ მნიშვნელობა და ეგრე გავიგოთ რომელ დივს ვაკლიკავთ?
+    divEl.setAttribute('data-id', item.id);
 
     const titleId = document.createElement('h3');
     titleId.innerText = item.id;
@@ -72,7 +72,7 @@ function createPost(item){
 
     divEl.addEventListener("click", function(){
         overlay.classList.add("activeOverlay");
-        const divId = divEl.getAttribute('data-id'); // this-ის მაგივრად divEl იც ჩვეულებრივად მოქმედებს, const რატომ, divId ხომ ყოველ ახალ დაჭერაზე იცვლება?
+        const divId = this.getAttribute('data-id');
 
         const newUrl = `https://jsonplaceholder.typicode.com/posts/${divId}`; //აქაც const რატომ?
         fetchFnc(newUrl, function(newData){
@@ -93,12 +93,12 @@ function createPost(item){
         })
         .then(divEl.remove());
     });
-    
-    closeIcon.addEventListener("click", function(){ // ეს ივენთი ფუნქციის გარეთ იქნება თუ შიგნით მაინც მოქმედებს და მნიშვნელობა ხომ არ აქვს?
-        overlay.classList.remove("activeOverlay");
-        postDescr.innerHTML = ' ';
-    });
 }
+
+closeIcon.addEventListener("click", function(){
+    overlay.classList.remove("activeOverlay");
+    postDescr.innerHTML = ' ';
+});
 
 
 addButton.addEventListener('click', function(){
