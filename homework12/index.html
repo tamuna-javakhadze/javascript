@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>homework 12</title>
+</head>
+<body>
+    <main>
+        <section>
+            <form action="" class="form" id="form" method="post">
+                <div class="input-wraper">
+                    <label class="label">First Name</label>
+                    <input type="text" class="input" id="first-name" name="firstname" placeholder="enter your first name">
+                    <p class="error" id="error_firstname"></p>
+                </div>
+    
+                <div class="input-wraper">
+                    <label class="label">Last Name</label>
+                    <input type="text" class="input" id="last-name" name="lastname" placeholder="enter your last name">
+                    <p class="error" id="error_lastname"></p>
+                </div>
+    
+                <div class="input-wraper">
+                    <label class="label">Email address</label>
+                    <input type="email" class="input" id="email" name="email" placeholder="enter your email">
+                    <p class="error" id="error_email"></p>
+                    <p id="error-email"></p>
+                </div>
+
+                <div class="input-wraper">
+                    <label class="label">Password</label>
+                    <div class="input-icon-wraper">
+                        <input type="password" class="input" id="password1" name="password1" placeholder="enter the password">
+                        <i id="show-icon1" class="fa-solid fa-eye"></i>
+                    </div>
+                    <p class="error" id="error_password1"></p>
+                    <p id="error-password1"></p>
+                </div>
+    
+                <div class="input-wraper">
+                    <label class="label">Repeat Password</label>
+                    <div class="input-icon-wraper">
+                        <input type="password" class="input" id="password2" name="password2" placeholder="repeat the password">
+                        <i id="show-icon2" class="fa-solid fa-eye"></i>
+                    </div>
+                    <p class="error" id="error_password2"></p>
+                </div>
+                
+                <button type="submit" class="button-form">Get Started</button>
+            </form>
+        </section>
+
+        <div id="cookie-banner" class="cookie-banner">
+            <p>We use cookies to improve your experience on our site. By accepting, you agree to our cookie policy.</p>
+            <button onclick="acceptCookies()">Accept</button>
+            <button onclick="denyCookies()">Deny</button>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

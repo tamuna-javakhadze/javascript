@@ -1,0 +1,118 @@
+body {
+    background-color: lightcoral;
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+.form {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+.input-wraper{
+    margin-bottom: 20px;
+}
+.label {
+    font-size: 15px;
+    color: #555;
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+.input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #333;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+.input:focus {
+    outline: none;
+    border-color: lightcoral;
+    background-color: #ffffff;
+}
+.input-icon-wraper{
+    position: relative;
+}
+.input-icon-wraper i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #888;
+    transition: color 0.3s;
+}
+.input-icon-wraper i:hover {
+    color: crimson;
+}
+.error{
+    color: red;
+}
+.button-form {
+    width: 100%;
+    padding: 12px;
+    background-color: lightpink;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    font-family: 'Poppins', sans-serif;
+}
+.button-form:hover {
+    background-color: crimson;
+}
+
+/* coockies */
+.cookie-banner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    background-color: brown;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: solid 2px beige;
+    border-radius: 30px;
+}
+.cookie-banner p {
+    margin: 0;
+    padding-right: 20px;
+    font-size: 14px;
+    flex: 1;
+}
+.cookie-banner button {
+    background-color: yellow;
+    border: none;
+    padding: 8px 15px;
+    color: black;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 10px;
+    border-radius: 4px;
+}
+.cookie-banner button:hover {
+    background-color: gold;
+}
+
+.cookie-banner button:nth-child(3) {
+    background-color: crimson;
+}
+
+.cookie-banner button:nth-child(3):hover {
+    background-color: rgb(202, 20, 57);
+}
